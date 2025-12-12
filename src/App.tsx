@@ -55,8 +55,8 @@ export const App: React.FC = () => {
             <div className="block">
               <TodoFilter
                 query={query}
-                changeQuery={setQuery}
-                chooseOption={setFilter}
+                onChangeQuery={setQuery}
+                onOptionChange={setFilter}
                 option={filter}
               />
             </div>
@@ -69,7 +69,7 @@ export const App: React.FC = () => {
               {loader && !error ? (
                 <Loader />
               ) : (
-                <TodoList todos={filteredTodos} selectedTodo={handleClick} />
+                <TodoList todos={filteredTodos} onSelectTodo={handleClick} />
               )}
             </div>
           </div>

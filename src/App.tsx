@@ -69,7 +69,11 @@ export const App: React.FC = () => {
               {loader && !error ? (
                 <Loader />
               ) : (
-                <TodoList todos={filteredTodos} onSelectTodo={handleClick} />
+                <TodoList
+                  todos={filteredTodos}
+                  onSelectTodo={handleClick}
+                  selectedTodo={selectedTodo}
+                />
               )}
             </div>
           </div>
@@ -77,7 +81,7 @@ export const App: React.FC = () => {
       </div>
 
       {selectedTodo && (
-        <TodoModal todo={selectedTodo} handleModalClose={handleModalClose} />
+        <TodoModal todo={selectedTodo} onModalClose={handleModalClose} />
       )}
     </>
   );

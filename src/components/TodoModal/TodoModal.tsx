@@ -6,10 +6,10 @@ import { User } from '../../types/User';
 
 type Props = {
   todo: Todo;
-  handleModalClose: () => void;
+  onModalClose: () => void;
 };
 
-export const TodoModal: React.FC<Props> = ({ todo, handleModalClose }) => {
+export const TodoModal: React.FC<Props> = ({ todo, onModalClose }) => {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(false);
@@ -35,7 +35,7 @@ export const TodoModal: React.FC<Props> = ({ todo, handleModalClose }) => {
               className="modal-card-title has-text-weight-medium"
               data-cy="modal-header"
             >
-              {todo.id}
+              {`Todo #${todo.id}`}
             </div>
 
             {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
@@ -43,7 +43,7 @@ export const TodoModal: React.FC<Props> = ({ todo, handleModalClose }) => {
               type="button"
               className="delete"
               data-cy="modal-close"
-              onClick={handleModalClose}
+              onClick={onModalClose}
             />
           </header>
 
